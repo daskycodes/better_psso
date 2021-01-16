@@ -1,6 +1,6 @@
 # 🧑‍🎓 Better PSSO
 
-A better PSSO for Code & Context
+![Better PSSO Mock](https://git.coco.study/dkhaapam/better_psso/-/raw/main/assets/static/images/better-psso-mock.png)
 
 ## Development
 
