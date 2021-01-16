@@ -1,0 +1,21 @@
+<h1 class="px-5 pb-2 text-lg leading-normal text-center">Log in</h1>
+<%= form_for @conn, Routes.user_session_path(@conn, :create), [as: :user], fn f -> %>
+  <%= if @error_message do %>
+    <div class="alert alert-danger">
+      <small><%= @error_message %></small>
+    </div>
+  <% end %>
+
+  <div class="mt-4 mb-4">
+    <%= label f, :campusid, class: "form-label" %>
+    <%= text_input f, :campusid, required: true, class: "form-input" %>
+  </div>
+
+  <div class="mb-4">
+    <%= label f, :password, class: "form-label" %>
+    <%= password_input f, :password, required: true, class: "form-input" %>
+  </div>
+  <div class="mt-6">
+    <%= submit "Log in", class: "btn" %>
+  </div>
+<% end %>

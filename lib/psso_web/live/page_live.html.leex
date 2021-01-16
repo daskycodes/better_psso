@@ -1,0 +1,10 @@
+<%= unless is_nil @headers do %>
+  <h1>Stammdaten des Studierenden</h1>
+  <%= raw Psso.Psso.student_table(@headers, @asi) %>
+<% else %>
+  <section class="Hero">
+    <h1>A better PSSO for Code & Context</h1>
+    <%= link "Log in", to: Routes.user_session_path(@socket, :new), class: "btn" %>
+    <img src="<%= Routes.static_path(@socket, "/images/better-psso-mock.png") %>" alt="Better PSSO"/>
+  </section>
+<% end %>

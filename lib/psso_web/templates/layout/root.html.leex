@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= csrf_meta_tag() %>
+    <%= live_title_tag assigns[:page_title] || "A better PSSO for Code & Context", prefix: "Better PSSO · " %>
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <meta name="msapplication-TileColor" content="#7c3aed">
+    <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+  <body>
+    <header>
+      <section class="container">
+        <nav role="navigation">
+          <ul>
+            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
+              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
+            <% end %>
+            <%= if is_nil(@headers) do %>
+              <li><%= link "Log in", to: Routes.user_session_path(@conn, :new), class: "btn btn-sm btn-link" %></li>
+            <% else %>
+              <li><%= link "Notenübersicht", to: Routes.grading_path(@conn, :index) %></li>
+              <li><%= link "Bescheinigungen", to: Routes.certificates_path(@conn, :index) %></li>
+              <li><%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "btn btn-sm btn-link" %></li>
+            <% end %>
+          </ul>
+        </nav>
+        <%= link "🧑‍🎓 Better PSSO", to: Routes.page_path(@conn, :index), class: "logo" %>
+      </section>
+    </header>
+    <%= @inner_content %>
+  </body>
+</html>
