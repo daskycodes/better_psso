@@ -21,13 +21,15 @@ defmodule PssoWeb.UserAuth do
   if you are not using LiveView.
   """
   def log_in_user(conn, headers, asi) do
+    user_return_to = get_session(conn, :user_return_to)
+
     conn
     |> renew_session()
     |> put_session(:headers, headers)
     |> put_session(:asi, asi)
     |> put_session(:live_socket_id, "users_sessions:#{Base.url_encode64(asi)}")
     |> put_flash(:info, "Logged in successfully!")
-    |> redirect(to: signed_in_path(conn))
+    |> redirect(to: user_return_to || signed_in_path(conn))
   end
 
   # This function renews the session ID and erases the whole
