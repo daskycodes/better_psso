@@ -3,12 +3,22 @@ defmodule PssoWeb.PageLive do
 
   @impl true
   def mount(_params, session, socket) do
+    send(self(), {:load_data, session})
     {:ok, maybe_assign_campusid(socket, session)}
   end
 
-  defp maybe_assign_campusid(socket, %{"headers" => headers, "asi" => asi} = _session) do
-    assign(socket, headers: headers, asi: asi)
+  @impl true
+  def handle_info({:load_data, %{"headers" => headers, "asi" => asi} = _session}, socket) do
+    data = raw(Psso.Psso.student_table(headers, asi))
+    {:noreply, assign(socket, data: data)}
   end
 
-  defp maybe_assign_campusid(socket, _session), do: assign(socket, headers: nil)
+  def handle_info({:load_data, _session}, socket), do: {:noreply, socket}
+
+  defp maybe_assign_campusid(socket, %{"headers" => _headers, "asi" => _asi} = _session) do
+    assign(socket, campusid: true, data: "Loading...")
+  end
+
+  defp maybe_assign_campusid(socket, _session),
+    do: assign(socket, campusid: nil)
 end

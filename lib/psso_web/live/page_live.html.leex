@@ -1,6 +1,6 @@
-<%= unless is_nil @headers do %>
+<%= if @campusid do %>
   <h1>Stammdaten des Studierenden</h1>
-  <%= raw Psso.Psso.student_table(@headers, @asi) %>
+  <%= @data %>
 <% else %>
   <section class="Hero">
     <h1>A better PSSO for Code & Context</h1>
