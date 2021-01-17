@@ -33,7 +33,6 @@ defmodule Psso.Psso do
       headers,
       set_asi_params()
     )
-    |> IO.inspect()
     |> get_asi_from_response()
   end
 
