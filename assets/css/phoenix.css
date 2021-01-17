@@ -10,6 +10,7 @@
 *:after,
 *:before {
   box-sizing: inherit;
+  margin: 0;
 }
 html {
   box-sizing: border-box;
@@ -43,11 +44,11 @@ input[type="submit"] {
   white-space: nowrap;
   text-decoration: none;
   color: #f9fafb;
-  background-color: #7C3AED;
+  background-color: #7c3aed;
   font-size: 2rem;
   padding: 1rem 2rem;
-  border: 0.1rem solid #7C3AED;
-  border-radius: .5rem;
+  border: 0.1rem solid #7c3aed;
+  border-radius: 0.5rem;
 }
 .button:focus,
 .button:hover,
@@ -614,5 +615,3 @@ header nav ul {
 header nav a {
   display: block;
 }
-
-
