@@ -1,7 +1,7 @@
 defmodule Psso.Psso do
   import Psso.Psso.Routes
 
-  @options [ssl: [{:versions, [:"tlsv1.2"]}], recv_timeout: 1000]
+  @options [ssl: [{:versions, [:"tlsv1.2"]}], recv_timeout: 1800]
 
   def login(campusid, password) do
     credentials = "#{campusid}:#{password}" |> Base.encode64()
@@ -60,7 +60,7 @@ defmodule Psso.Psso do
       |> List.last()
 
     if is_nil(table) do
-      "<h2>Your session has expired. Please log out and log in again<h1>"
+      "<h2>Your session has expired. Please log out and log in again</h2>"
     else
       table
       |> Floki.raw_html()
@@ -82,7 +82,7 @@ defmodule Psso.Psso do
       |> List.first()
 
     if is_nil(table) do
-      "<h2>Your session has expired. Please log out and log in again<h1>"
+      "<h2>Your session has expired. Please log out and log in again</h2>"
     else
       table
       |> Floki.raw_html()
@@ -99,7 +99,7 @@ defmodule Psso.Psso do
       |> Floki.find("table.mod")
 
     if Enum.empty?(table) do
-      "<h2>Your session has expired. Please log out and log in again<h1>"
+      "<h2>Your session has expired. Please log out and log in again</h2>"
     else
       table
       |> Floki.raw_html()
