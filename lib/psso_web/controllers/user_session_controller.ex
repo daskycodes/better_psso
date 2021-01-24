@@ -18,10 +18,10 @@ defmodule PssoWeb.UserSessionController do
       {:error, :unauthorized} ->
         render(conn, "new.html", error_message: "Invalid campusid or password")
 
-      _ ->
+      {:error, :psso_error} ->
         render(conn, "new.html",
           error_message:
-            "Either the password is wrong or there is something going on at the TH-Koeln Server"
+            "Either the password is wrong or there is something going on at the TH-Köln Server."
         )
     end
   end

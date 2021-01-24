@@ -8,26 +8,30 @@ defmodule Psso.Psso do
     headers = [Authorization: "Basic #{credentials}"]
 
     with {:ok, response} <- HTTPoison.get(log_in_url(), headers),
-         302 <- response.status_code do
-      headers = set_cookie(response)
-      {:ok, headers, set_asi(headers)}
+         302 <- response.status_code,
+         {:ok, headers} <- set_cookie(response) do
+      {:ok, headers, get_asi(headers)}
     else
       401 -> {:error, :unauthorized}
-      _ -> {:error, :internal_server_error}
+      _ -> {:error, :psso_error}
     end
   end
 
   def set_cookie(response) do
-    j_session_id =
-      response.headers
-      |> Enum.filter(fn {key, _} -> String.match?(key, ~r/\Aset-cookie\z/i) end)
-      |> List.first()
-      |> elem(1)
+    try do
+      j_session_id =
+        response.headers
+        |> Enum.filter(fn {key, _} -> String.match?(key, ~r/\Aset-cookie\z/i) end)
+        |> List.first()
+        |> elem(1)
 
-    [Cookie: [j_session_id]]
+      {:ok, [Cookie: [j_session_id]]}
+    rescue
+      ArgumentError -> {:error, :psso_error}
+    end
   end
 
-  def set_asi(headers) do
+  def get_asi(headers) do
     HTTPoison.get!(
       base_url(),
       headers,
