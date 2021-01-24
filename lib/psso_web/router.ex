@@ -41,6 +41,9 @@ defmodule PssoWeb.Router do
     pipe_through [:api, :basic_auth]
 
     get "/gradings", Api.V1.GradingController, :index
+
+    get "/certificates", Api.V1.CertificateController, :index
+    get "/certificates/:type/:id", Api.V1.CertificateController, :download
   end
 
   # Other scopes may use custom stacks.

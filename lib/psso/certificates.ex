@@ -3,6 +3,34 @@ defmodule Psso.Certificates do
 
   @options [ssl: [{:versions, [:"tlsv1.2"]}], recv_timeout: 1800]
 
+  def list_certificates(headers, _asi) do
+    {:ok, response} =
+      HTTPoison.get(base_url(), headers, Keyword.merge(@options, certificates_params()))
+
+    document =
+      Floki.parse_document!(response.body)
+      |> Floki.find_and_update("td a", &replace_certificate_links/1)
+
+    links = document |> Floki.find("td a") |> Floki.attribute("href")
+
+    document
+    |> Floki.find("table.mod")
+    |> Floki.find("td")
+    |> Enum.map(&Floki.text/1)
+    |> Enum.map(&String.trim/1)
+    |> Enum.chunk_every(3)
+    |> Enum.with_index()
+    |> Enum.map(fn {row, index} ->
+      %{
+        semester: Enum.at(row, 0),
+        links: %{
+          studienbescheinigung: Enum.at(links, index + index * 1),
+          bafoeg_bescheinigung: Enum.at(links, 1 + index + index * 1)
+        }
+      }
+    end)
+  end
+
   def get_certificates_table(headers, _asi) do
     {:ok, response} =
       HTTPoison.get(base_url(), headers, Keyword.merge(@options, certificates_params()))

@@ -21,6 +21,67 @@ Your Campusid and Password are encoded using [HTTP Basic Auth](https://tools.iet
 http https://psso.xyz/api/v1/gradings --auth campusid:password
 ```
 
+# Certificates
+
+## Endpoints
+
+- GET /certificates
+- GET /certificates/:type/:id
+
+## Examples
+
+```
+http https://psso.xyz/api/v1/certificates --auth campusid:password
+```
+
+```
+[
+  {
+    "links": {
+      "bafoeg_bescheinigung": "http://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20211",
+      "studienbescheinigung": "http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211"
+    },
+    "semester": "Sommersemester 2021"
+  },
+  {
+    "links": {
+      "bafoeg_bescheinigung": "http://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20202",
+      "studienbescheinigung": "http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20202"
+    },
+    "semester": "Wintersemester 2020/21"
+  },
+  {
+    "links": {
+      "bafoeg_bescheinigung": "http://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20201",
+      "studienbescheinigung": "http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20201"
+    },
+    "semester": "Sommersemester 2020"
+  },
+  {
+    "links": {
+      "bafoeg_bescheinigung": "http://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20192",
+      "studienbescheinigung": "http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20192"
+    },
+    "semester": "Wintersemester 2019/20"
+  }
+]
+```
+
+```
+http http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211 --auth campusid:password
+```
+
+```
+HTTP/1.1 200 OK
+cache-control: max-age=0, private, must-revalidate
+content-disposition: attachment; filename="studienbescheinigungSemester-20211.pdf"
+content-length: 45971
+content-type: application/pdf
+date: Sun, 24 Jan 2021 20:44:48 GMT
+server: Cowboy
+x-request-id: XXXXXXXXXXXXXXXXXX
+```
+
 # Gradings
 
 ## Endpoints
