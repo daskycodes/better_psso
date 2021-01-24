@@ -9,7 +9,7 @@ defmodule PssoWeb.GradingLive do
 
   @impl true
   def handle_info({:load_data, %{"headers" => headers, "asi" => asi} = _session}, socket) do
-    data = raw(Psso.Psso.grading_table(headers, asi))
+    data = raw(Psso.Grading.get_grading_table(headers, asi))
     {:noreply, assign(socket, data: data)}
   end
 

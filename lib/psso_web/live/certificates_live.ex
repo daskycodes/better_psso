@@ -9,7 +9,7 @@ defmodule PssoWeb.CertificatesLive do
 
   @impl true
   def handle_info({:load_data, %{"headers" => headers, "asi" => asi} = _session}, socket) do
-    data = raw(Psso.Psso.certificates_table(headers, asi))
+    data = raw(Psso.Certificates.get_certificates_table(headers, asi))
     {:noreply, assign(socket, data: data)}
   end
 

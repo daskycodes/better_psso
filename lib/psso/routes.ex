@@ -1,4 +1,4 @@
-defmodule Psso.Psso.Routes do
+defmodule Psso.Routes do
   def grading_params(asi) do
     params = %{
       state: "notenspiegelStudent",

@@ -3,7 +3,7 @@ defmodule PssoWeb.UserSessionController do
 
   alias PssoWeb.UserAuth
 
-  import Psso.Psso.Routes
+  import Psso.Routes
 
   def new(conn, _params) do
     render(conn, "new.html", error_message: nil)
@@ -12,7 +12,7 @@ defmodule PssoWeb.UserSessionController do
   def create(conn, %{"user" => user_params}) do
     %{"campusid" => campusid, "password" => password} = user_params
 
-    with {:ok, headers, asi} <- Psso.Psso.login(campusid, password) do
+    with {:ok, headers, asi} <- Psso.Authentication.login(campusid, password) do
       UserAuth.log_in_user(conn, headers, asi)
     else
       {:error, :unauthorized} ->

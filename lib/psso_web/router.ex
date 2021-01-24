@@ -30,9 +30,15 @@ defmodule PssoWeb.Router do
   scope "/", PssoWeb do
     pipe_through [:browser, :require_authenticated_user]
 
-    live "/grading", GradingLive, :index
+    live "/gradings", GradingLive, :index
     live "/certificates", CertificatesLive, :index
     get "/certificates/:type/:id", CertificateDownloadController, :download_certificate
+  end
+
+  scope "/api/v1", PssoWeb do
+    pipe_through [:api, :basic_auth]
+
+    get "/gradings", Api.V1.GradingController, :index
   end
 
   # Other scopes may use custom stacks.
@@ -53,6 +59,21 @@ defmodule PssoWeb.Router do
     scope "/" do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: PssoWeb.Telemetry
+    end
+  end
+
+  defp basic_auth(conn, _opts) do
+    with {campusid, password} <- Plug.BasicAuth.parse_basic_auth(conn),
+         {:ok, headers, asi} <- Psso.Authentication.login(campusid, password) do
+      conn
+      |> assign(:headers, headers)
+      |> assign(:asi, asi)
+    else
+      {:error, message} ->
+        conn |> put_status(:unauthorized) |> json(%{error: message}) |> halt()
+
+      _ ->
+        conn |> put_status(:unauthorized) |> json(%{error: "Unauthorized"}) |> halt()
     end
   end
 end

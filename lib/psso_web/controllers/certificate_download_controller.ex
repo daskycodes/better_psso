@@ -1,7 +1,7 @@
 defmodule PssoWeb.CertificateDownloadController do
   use PssoWeb, :controller
 
-  import Psso.Psso.Routes
+  import Psso.Routes
 
   def download_certificate(conn, %{"type" => type, "id" => id} = _params) do
     %{"headers" => headers} = Plug.Conn.get_session(conn)

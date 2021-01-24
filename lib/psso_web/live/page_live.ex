@@ -9,7 +9,7 @@ defmodule PssoWeb.PageLive do
 
   @impl true
   def handle_info({:load_data, %{"headers" => headers, "asi" => asi} = _session}, socket) do
-    data = raw(Psso.Psso.student_table(headers, asi))
+    data = raw(Psso.Student.get_profile_table(headers, asi))
     {:noreply, assign(socket, data: data)}
   end
 
