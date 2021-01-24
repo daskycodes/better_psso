@@ -1,10 +1,199 @@
 <%= if @campusid do %>
-  <h1>Stammdaten des Studierenden</h1>
-  <%= @data %>
+  <section class="container px-4 py-12 mx-auto">
+    <h1 class="text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">Stammdaten des Studierenden</h1>
+    <%= if @data == :loading do %>
+      <div class="space-y-2 my-4" aria-live="assertive" aria-atomic="true">
+        <div class="w-9/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+        <div class="w-11/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+        <div class="w-8/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+        <div class="w-7/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+        <div class="w-10/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+        <div class="w-9/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+        <div class="w-11/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+        <div class="w-8/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+        <div class="w-7/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      </div>
+    <% else %>
+      <section class="my-4">
+        <%= @data %>
+      </section>
+    <% end %>
+  </section>
 <% else %>
-  <section class="Hero">
-    <h1>A better PSSO for Code & Context</h1>
-    <%= link "Log in", to: Routes.user_session_path(@socket, :new), class: "btn" %>
-    <img src="<%= Routes.static_path(@socket, "/images/better-psso-mock.png") %>" alt="Better PSSO"/>
+  <section class="container px-4 py-24 mx-auto">
+    <div class="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
+      <h1 class="mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
+        A better PSSO for <span class="block w-full text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-purple-500 lg:inline">Code & Context</span>
+      </h1>
+      <p class="px-0 mb-6 text-lg text-gray-600 md:text-xl lg:px-24">
+        An alternative implementation of the TH-Köln PSSO for Code & Context students
+      </p>
+      <div class="mb-4 space-x-0 md:space-x-2 md:mb-8">
+        <%= link "Log in", to: Routes.user_session_path(@socket, :new), class: "inline-flex items-center justify-center w-full mb-2 btn btn-primary btn-lg sm:w-auto sm:mb-0" %>
+      </div>
+    </div>
+
+    <div class="w-full mx-auto mt-20 text-center md:w-10/12">
+      <!-- Browser frame mockup -->
+      <div class="relative">
+        <!-- Toolbars -->
+        <div class="w-full">
+          <div class="bg-gray-700 border border-gray-400 rounded-t-lg flex items-stretch">
+            <div class="px-4 pt-4 pb-3 mr-4 text-sm flex-0 text-gray-400 whitespace-no-wrap">
+              <i class="mx-1 rounded-full w-3 h-3 bg-red-400 inline-block"></i>
+              <i class="mx-1 rounded-full w-3 h-3 bg-green-400 inline-block"></i>
+              <i class="mx-1 rounded-full w-3 h-3 bg-purple-400 inline-block"></i>
+            </div>
+            <div class="relative px-4 py-2 mt-2 -mb-px flex-0 border-t border-gray-400 bg-gray-100 rounded-t-lg">
+              <!-- Left side of tab -->
+              <div class="absolute bottom-0 w-4 h-8 border-b border-r border-gray-400 bg-gray-700 rounded-br-lg sh"
+                style="right:100%;"></div>
+              <!-- Tab text -->
+              <div class="text-sm overflow-hidden pt-1 w-56 whitespace-no-wrap ">
+                🎓 Better PSSO
+              </div>
+              <!-- Tab text fade near end -->
+              <span class="absolute h-full rounded-tr-lg top-0 right-0 m-px w-1/2"
+                style="background: linear-gradient(to right, rgba(247, 250, 252, 0.0) 0%,rgb(247, 250, 252) 80%);"></span>
+              <!-- Tab close button -->
+              <div class="text-gray-500 absolute top-0 right-0 pt-3 pr-2 text-xs">
+                <!-- <i class="fas fa-times-circle"></i> -->
+                <svg class="mx-px w-4 h-4 inline-block" fill="currentColor" viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <!-- Right side of tab -->
+              <div class="absolute bottom-0 w-4 h-8 border-b border-l border-gray-400 bg-gray-700 rounded-bl-lg sh"
+                style="left:100%;"></div>
+            </div>
+          </div>
+          <div class="bg-gray-100 border-l border-r border-b border-gray-400 flex flex-row py-2">
+            <div class="px-4 py-2 flex-0 text-gray-400 whitespace-no-wrap">
+              <!-- <i class="mx-1 fas fa-arrow-left"></i> -->
+              <svg class="mx-px w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <!-- <i class="mx-1 fas fa-arrow-right"></i> -->
+              <svg class="mx-px w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <!-- <i class="mx-1 fas fa-sync"></i> -->
+              <svg class="mx-px w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div
+              class="px-4 py-2 my-auto flex-1 border border-gray-400 bg-white rounded-md whitespace-no-wrap overflow-hidden">
+              https://psso.xyz/grading
+            </div>
+            <div class="px-4 py-2  flex-0 text-gray-400 whitespace-no-wrap">
+              <!-- <i class="mx-1 fas fa-download"></i> -->
+              <svg class="mx-px w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <!-- <i class="mx-1 fas fa-user-circle"></i> -->
+              <svg class="mx-px w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <!-- <i class="mx-1 fas fa-bars"></i> -->
+              <svg class="mx-px w-6 h-6 inline-block" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- Faux Sides -->
+        <div class="absolute left-0 border-l border-r border-gray-400 h-16 w-full"></div>
+      </div>
+
+      <!-- Page Content  -->
+      <div class="w-full text-left">
+        <section class="container px-4 py-12 mx-auto">
+          <h1 class="opacity-50 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
+            Notenübersicht</h1>
+          <table border="0" class="my-4 overflow-hidden">
+            <tbody>
+              <tr clas="opacity-30">
+                <th class="tabelleheader" align="left" width="5%" scope="col">
+                  PNR
+                </th>
+                <th class="tabelleheader" align="left" width="50%" scope="col">
+                  &nbsp;&nbsp;&nbsp;Prüfungstext
+                </th>
+                <th class="tabelleheader" align="center" width="6%" scope="col">
+                  Pflichtkz.
+                </th>
+                <th class="tabelleheader" align="center" width="6%" scope="col">
+                  Prf.Art
+                </th>
+                <th class="tabelleheader" align="left" width="6%" scope="col">
+                  Semester
+                </th>
+                <th class="tabelleheader" align="right" width="4%" scope="col">
+                  Note
+                </th>
+                <th class="tabelleheader" align="center" width="6%" scope="col">
+                  Status
+                </th>
+                <th class="tabelleheader" align="right" width="6%" scope="col">
+                  Credits
+                </th>
+                <th class="tabelleheader" align="center" width="6%" scope="col">
+                  Vermerk
+                </th>
+                <th class="tabelleheader" align="center" width="6%" scope="col">
+                  Versuch
+                </th>
+                <th class="tabelleheader" align="center" width="10%" scope="col">
+                  Prüfungsdatum
+                </th>
+              </tr>
+              <tr class="opacity-10">
+                <td class="qis_kontoOnTop" valign="top" align="left">
+                  974
+                </td>
+                <td class="qis_kontoOnTop" valign="top" colspan="1" align="left">
+                  ECTS-Konto
+                </td>
+                <td class="qis_kontoOnTop" valign="top" align="center" width="6%"></td>
+                <td class="qis_kontoOnTop" valign="top" align="center" width="6%"></td>
+                <td class="qis_kontoOnTop" valign="top" align="center" width="6%"></td>
+                <td class="qis_kontoOnTop" valign="top" align="center">
+                  1,00 </td>
+                <td class="qis_kontoOnTop" valign="top" align="center"></td>
+                <td class="qis_kontoOnTop" valign="top" align="center">
+                  210,0
+                </td>
+                <td>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
   </section>
 <% end %>

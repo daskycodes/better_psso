@@ -16,8 +16,7 @@ defmodule PssoWeb.PageLive do
   def handle_info({:load_data, _session}, socket), do: {:noreply, socket}
 
   defp maybe_assign_campusid(socket, %{"headers" => _headers, "asi" => _asi} = _session) do
-    data = raw("<div class='skeleton'></div>")
-    assign(socket, campusid: true, data: data)
+    assign(socket, campusid: true, data: :loading)
   end
 
   defp maybe_assign_campusid(socket, _session),

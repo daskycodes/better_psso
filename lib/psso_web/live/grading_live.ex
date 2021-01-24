@@ -4,7 +4,7 @@ defmodule PssoWeb.GradingLive do
   @impl true
   def mount(_params, session, socket) do
     send(self(), {:load_data, session})
-    {:ok, assign(socket, data: raw("<div class='skeleton'></div>"))}
+    {:ok, assign(socket, data: :loading)}
   end
 
   @impl true

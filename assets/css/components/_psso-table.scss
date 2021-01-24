@@ -4,6 +4,7 @@ table {
   display: block;
   overflow-x: auto;
   white-space: nowrap;
+  text-align: center;
 
   th {
     padding: 2rem 1rem !important;
@@ -21,8 +22,18 @@ table {
 
   .mod_n_basic {
     width: 100%;
+    text-align: left;
   }
   .mod_n_odd {
     width: 100%;
+    text-align: left;
+  }
+
+  .mod_n_even {
+    text-align: left;
+  }
+
+  .tabelle1_alignleft {
+    text-align: left;
   }
 }

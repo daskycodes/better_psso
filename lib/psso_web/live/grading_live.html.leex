@@ -1,2 +1,20 @@
-<h1>Notenübersicht</h1>
-<%= @data %>
+<section class="container px-4 py-12 mx-auto">
+  <h1 class="text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">Notenübersicht</h1>
+  <%= if @data == :loading do %>
+    <div class="space-y-2 my-4" aria-live="assertive" aria-atomic="true">
+      <div class="w-9/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-11/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-8/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-7/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-10/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-9/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-11/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-8/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+      <div class="w-7/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+    </div>
+  <% else %>
+    <section class="my-4">
+      <%= @data %>
+    </section>
+  <% end %>
+</section>
