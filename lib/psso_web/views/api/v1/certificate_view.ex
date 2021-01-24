@@ -18,6 +18,8 @@ defmodule PssoWeb.Api.V1.CertificateView do
     %{
       semester: certificate.semester,
       links: %{
+        certificate_of_enrolment:
+          Routes.certificate_url(Endpoint, :download, studien_type <> "En", studien_id),
         studienbescheinigung:
           Routes.certificate_url(Endpoint, :download, studien_type, studien_id),
         bafoeg_bescheinigung: Routes.certificate_url(Endpoint, :download, bafoeg_type, bafoeg_id)

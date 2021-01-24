@@ -39,6 +39,7 @@ http https://psso.xyz/api/v1/certificates --auth campusid:password
   {
     "links": {
       "bafoeg_bescheinigung": "https://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20211",
+      "certificate_of_enrolment": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemesterEn/20211",
       "studienbescheinigung": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211"
     },
     "semester": "Sommersemester 2021"
@@ -46,6 +47,7 @@ http https://psso.xyz/api/v1/certificates --auth campusid:password
   {
     "links": {
       "bafoeg_bescheinigung": "https://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20202",
+      "certificate_of_enrolment": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemesterEn/20202",
       "studienbescheinigung": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20202"
     },
     "semester": "Wintersemester 2020/21"
@@ -53,6 +55,7 @@ http https://psso.xyz/api/v1/certificates --auth campusid:password
   {
     "links": {
       "bafoeg_bescheinigung": "https://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20201",
+      "certificate_of_enrolment": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemesterEn/20201",
       "studienbescheinigung": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20201"
     },
     "semester": "Sommersemester 2020"
@@ -60,6 +63,7 @@ http https://psso.xyz/api/v1/certificates --auth campusid:password
   {
     "links": {
       "bafoeg_bescheinigung": "https://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20192",
+      "certificate_of_enrolment": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemesterEn/20192",
       "studienbescheinigung": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20192"
     },
     "semester": "Wintersemester 2019/20"
