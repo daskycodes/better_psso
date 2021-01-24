@@ -68,7 +68,7 @@ http https://psso.xyz/api/v1/certificates --auth campusid:password
 ```
 
 ```
-http http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211 --auth campusid:password
+http -d http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211 --auth campusid:password
 ```
 
 ```elixir
@@ -80,6 +80,9 @@ content-type: application/pdf
 date: Sun, 24 Jan 2021 20:44:48 GMT
 server: Cowboy
 x-request-id: XXXXXXXXXXXXXXXXXX
+
+Downloading 44.89 kB to "studienbescheinigungSemester-20211.pdf"
+Done. 44.89 kB in 0.03000s (1.46 MB/s)
 ```
 
 # Gradings
