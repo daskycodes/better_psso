@@ -34,7 +34,7 @@ http https://psso.xyz/api/v1/gradings --auth campusid:password
 http https://psso.xyz/api/v1/certificates --auth campusid:password
 ```
 
-```
+```elixir
 [
   {
     "links": {
@@ -71,7 +71,7 @@ http https://psso.xyz/api/v1/certificates --auth campusid:password
 http http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211 --auth campusid:password
 ```
 
-```
+```elixir
 HTTP/1.1 200 OK
 cache-control: max-age=0, private, must-revalidate
 content-disposition: attachment; filename="studienbescheinigungSemester-20211.pdf"
@@ -94,7 +94,7 @@ x-request-id: XXXXXXXXXXXXXXXXXX
 http https://psso.xyz/api/v1/gradings --auth campusid:password
 ```
 
-```
+```elixir
 [
   {
     "Credits": "4,0",
