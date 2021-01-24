@@ -2,6 +2,8 @@ defmodule PssoWeb.DocumentationController do
   use PssoWeb, :controller
 
   def doc(conn, _params) do
-    render(conn, "doc.html")
+    conn
+    |> assign(:page_title, "API Docs")
+    |> render("doc.html")
   end
 end
