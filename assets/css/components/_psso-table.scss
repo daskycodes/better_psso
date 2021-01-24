@@ -1,10 +1,5 @@
 table {
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-  text-align: center;
+  @apply block rounded shadow-lg overflow-x-auto whitespace-nowrap text-center dark:border-gray-50;
 
   th {
     padding: 2rem 1rem !important;
@@ -12,12 +7,19 @@ table {
   }
 
   td {
-    padding: 1rem !important;
-    background-color: #f9fafb;
+    @apply bg-gray-50 p-4 dark:bg-gray-900 dark:text-gray-50;
+  }
+
+  th {
+    @apply dark:text-gray-50 dark:bg-purple-800;
   }
 
   .qis_konto {
-    background-color: #f3f4f6;
+    @apply bg-gray-100 dark:bg-gray-800 dark:text-gray-50;
+  }
+
+  .qis_kontoOnTop {
+    @apply bg-gray-50 dark:bg-gray-900 dark:text-gray-50;
   }
 
   .mod_n_basic {
@@ -39,5 +41,18 @@ table {
 
   .tabelle1_alignleft {
     text-align: left;
+  }
+
+  th:first-of-type {
+    border-top-left-radius: 0.25rem;
+  }
+  th:last-of-type {
+    border-top-right-radius: 0.25rem;
+  }
+  tr:last-of-type td:first-of-type {
+    border-bottom-left-radius: 0.25rem;
+  }
+  tr:last-of-type td:last-of-type {
+    border-bottom-right-radius: 0.25rem;
   }
 }

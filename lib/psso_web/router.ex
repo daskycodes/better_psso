@@ -22,9 +22,9 @@ defmodule PssoWeb.Router do
 
     live "/", PageLive, :index
 
-    get "/users/log_in", UserSessionController, :new
-    post "/users/log_in", UserSessionController, :create
-    delete "/users/log_out", UserSessionController, :delete
+    get "/log_in", UserSessionController, :new
+    post "/log_in", UserSessionController, :create
+    delete "/log_out", UserSessionController, :delete
   end
 
   scope "/", PssoWeb do

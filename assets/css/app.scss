@@ -5,7 +5,7 @@
 @import "/components/psso-table";
 
 body {
-  background-color: #f3f4f6;
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 
 [hidden] {
@@ -21,7 +21,8 @@ body {
 }
 
 /* LiveView specific classes for your customizations */
-.phx-no-feedback.invalid-feedback, .phx-no-feedback .invalid-feedback {
+.phx-no-feedback.invalid-feedback,
+.phx-no-feedback .invalid-feedback {
   display: none;
 }
 
@@ -30,12 +31,11 @@ body {
   transition: opacity 1s ease-out;
 }
 
-.phx-disconnected{
+.phx-disconnected {
   cursor: wait;
 }
-.phx-disconnected *{
+.phx-disconnected * {
   pointer-events: none;
 }
 
 @tailwind utilities;
-

@@ -9,5 +9,6 @@ module.exports = {
       whitelist: []
     }
   },
-  plugins: [require("kutty")]
+  plugins: [require("kutty")],
+  darkMode: 'media'
 }
