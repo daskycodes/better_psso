@@ -16,7 +16,6 @@ import "phoenix_html"
 import { Socket } from "phoenix"
 import NProgress from "nprogress"
 import { LiveSocket } from "phoenix_live_view"
-import "alpinejs"
 import { InitToast } from "./init_toast.js"
 
 NProgress.configure({ showSpinner: false });
@@ -48,3 +47,4 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+import "alpinejs"
