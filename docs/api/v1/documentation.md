@@ -38,29 +38,29 @@ http https://psso.xyz/api/v1/certificates --auth campusid:password
 [
   {
     "links": {
-      "bafoeg_bescheinigung": "http://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20211",
-      "studienbescheinigung": "http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211"
+      "bafoeg_bescheinigung": "https://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20211",
+      "studienbescheinigung": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211"
     },
     "semester": "Sommersemester 2021"
   },
   {
     "links": {
-      "bafoeg_bescheinigung": "http://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20202",
-      "studienbescheinigung": "http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20202"
+      "bafoeg_bescheinigung": "https://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20202",
+      "studienbescheinigung": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20202"
     },
     "semester": "Wintersemester 2020/21"
   },
   {
     "links": {
-      "bafoeg_bescheinigung": "http://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20201",
-      "studienbescheinigung": "http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20201"
+      "bafoeg_bescheinigung": "https://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20201",
+      "studienbescheinigung": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20201"
     },
     "semester": "Sommersemester 2020"
   },
   {
     "links": {
-      "bafoeg_bescheinigung": "http://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20192",
-      "studienbescheinigung": "http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20192"
+      "bafoeg_bescheinigung": "https://psso.xyz/api/v1/certificates/bafoegbescheinigungSemester/20192",
+      "studienbescheinigung": "https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20192"
     },
     "semester": "Wintersemester 2019/20"
   }
@@ -68,7 +68,7 @@ http https://psso.xyz/api/v1/certificates --auth campusid:password
 ```
 
 ```
-http -d http://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211 --auth campusid:password
+http -d https://psso.xyz/api/v1/certificates/studienbescheinigungSemester/20211 --auth campusid:password
 ```
 
 ```elixir
