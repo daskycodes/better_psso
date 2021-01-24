@@ -20,6 +20,7 @@
       </p>
       <div class="mb-4 space-x-0 md:space-x-2 md:mb-8">
         <%= link "Log in", to: Routes.user_session_path(@socket, :new), class: "inline-flex items-center justify-center w-full mb-2 btn btn-primary btn-lg sm:w-auto sm:mb-0" %>
+        <%= link "API Docs", to: Routes.documentation_path(@socket, :doc), class: "inline-flex items-center justify-center w-full mb-2 btn btn-light-primary btn-lg sm:w-auto sm:mb-0" %>
       </div>
     </div>
     <%= render(PssoWeb.ComponentView, "browser_mock.html", []) %>

@@ -22,6 +22,8 @@ defmodule PssoWeb.Router do
 
     live "/", PageLive, :index
 
+    get "/docs", DocumentationController, :doc
+
     get "/log_in", UserSessionController, :new
     post "/log_in", UserSessionController, :create
     delete "/log_out", UserSessionController, :delete
