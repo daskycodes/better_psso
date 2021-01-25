@@ -35,6 +35,7 @@ defmodule Psso.Grading do
         |> Enum.map(fn {value, index} -> {Enum.at(course_keys, index), value} end)
       )
     end)
+    |> Enum.map(&Map.put(&1, "Fachsemseter", String.first(&1["PNR"])))
   end
 
   def get_grading_table(headers, asi) do

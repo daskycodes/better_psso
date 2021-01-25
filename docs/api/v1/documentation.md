@@ -105,6 +105,7 @@ http https://psso.xyz/api/v1/gradings --auth campusid:password
 [
   {
     "Credits": "4,0",
+    "Fachsemseter": "1",
     "Note": "1,0",
     "PNR": "1311",
     "Pflichtkz.": "PF",
@@ -118,6 +119,7 @@ http https://psso.xyz/api/v1/gradings --auth campusid:password
   },
   {
     "Credits": "5,0",
+    "Fachsemseter": "1",
     "Note": "",
     "PNR": "1411",
     "Pflichtkz.": "PF",
