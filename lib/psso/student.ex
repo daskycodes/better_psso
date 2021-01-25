@@ -17,7 +17,7 @@ defmodule Psso.Student do
       |> List.first()
 
     if is_nil(table) do
-      "<h2>Your session has expired. Please log out and log in again</h2>"
+      "<div class='alert text-red-700 bg-red-100' role='alert'>Your session has expired. Please log out and log in again.</div>"
     else
       table
       |> Floki.raw_html()

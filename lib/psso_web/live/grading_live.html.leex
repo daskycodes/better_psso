@@ -1,10 +1,53 @@
 <section class="container px-4 py-12 mx-auto">
   <h1 class="text-4xl font-extrabold leading-none tracking-normal text-gray-900 dark:text-gray-50 md:text-6xl md:tracking-tight">Notenübersicht</h1>
-  <%= if @data == :loading do %>
-    <%= render(PssoWeb.ComponentView, "skeleton.html", []) %>
-  <% else %>
-    <section class="my-4">
-      <%= @data %>
-    </section>
-  <% end %>
-</section>
+  <section class="py-12 mx-auto">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div class="card bg-gray-50 dark:bg-gray-900 border-0 shadow">
+        <div class="p-5">
+          <p
+          class="mb-2 text-xs font-semibold leading-none tracking-wide text-gray-500 uppercase"
+        >
+            Grading Average
+          </p>
+          <h2 class="text-3xl font-extrabold leading-none text-gray-800 dark:text-gray-50 truncate">
+            <%= if @stats == %{}, do: "Loading...", else: @stats.grading_average %>
+            </h2>
+          </div>
+          <div class="px-5 py-3 card-footer bg-purple-700"></div>
+        </div>
+        <div class="card bg-gray-50 dark:bg-gray-900 border-0 shadow">
+          <div class="p-5">
+            <p
+          class="mb-2 text-xs font-semibold leading-none tracking-wide text-gray-500 uppercase"
+        >
+              Total Credits
+            </p>
+            <h2 class="text-3xl font-extrabold leading-none text-gray-800 dark:text-gray-50 truncate">
+              <%= if @stats == %{}, do: "Loading...", else: @stats.total_credits %>
+              </h2>
+            </div>
+            <div class="px-5 py-3 card-footer bg-purple-700"></div>
+          </div>
+          <div class="card bg-gray-50 dark:bg-gray-900 border-0 shadow">
+            <div class="p-5">
+              <p
+          class="mb-2 text-xs font-semibold leading-none tracking-wide text-gray-500 uppercase"
+        >
+                Gradings received
+              </p>
+              <h2 class="text-3xl font-extrabold leading-none text-gray-800 dark:text-gray-50 truncate">
+                <%= if @stats == %{}, do: "Loading...", else: @stats.gradings_received %>
+                </h2>
+              </div>
+              <div class="px-5 py-3 card-footer bg-purple-700"></div>
+            </div>
+          </div>
+        </section>
+        <%= if @data == :loading do %>
+          <%= render(PssoWeb.ComponentView, "skeleton.html", []) %>
+        <% else %>
+          <section class="my-4">
+            <%= @data %>
+          </section>
+        <% end %>
+      </section>
